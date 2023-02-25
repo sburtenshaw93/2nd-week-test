@@ -30,7 +30,24 @@
 */
 
 //CODE HERE
+class Ticket {
+    constructor(
+        items, // this is plural, so its probably an array
+        orderTime, //this sounds like a timestamp, which requires letters (AM, PM) so probably a string
+        customerId // IDs are usually number, so this is probably a number
+        ){
+            this.items = items;
+            this.orderTime = orderTime;
+            this.customerId = customerId;
+            this.status = "queued";
+    }
+    updateStatus(newStatus) // newStatus is a string 
+    {
+        this.status = newStatus;
+        console.log(`The order for customer ${this.customerId} is now ${this.status}`);
 
+    }
+}
 
 
 /*
@@ -45,7 +62,8 @@
 */
 
 //CODE HERE
-
+const firstTicket = new Ticket(['Pizza', 'Bread', 'Soda'], '7:03 pm', 575)
+console.log(firstTicket)
 
 /*
     Call the `updateStatus` method on
@@ -54,3 +72,6 @@
 */
 
 //CODE HERE
+
+firstTicket.updateStatus('Cooking');
+console.log(firstTicket)

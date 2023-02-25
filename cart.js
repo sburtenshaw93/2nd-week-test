@@ -39,6 +39,7 @@ const cart = [
 
 const totalSum = cart.reduce((acc, cur) => acc + cur.price, 0)
 console.log('$', totalSum)
+console.log('______________')
 
 //////////////////PROBLEM 2////////////////////
 /*  
@@ -56,20 +57,16 @@ console.log('$', totalSum)
 */
 
 //CODE HERE
-// cartTotal = []
-// couponValue = []
-// tax = []
 
-// const calcFinalPrice = (cartTotal, couponValue, tax) =>{
-//   for (let i = 0; i < cartTotal.length; i++){
-//     cartTotal.push(tax[i] + tax[i] * .06)
-//   } if (couponValue.reduce(cartTotal[i] - cartTotal[i])) {
-//     return (cartTotal - couponValue) 
-//   }
-//   return(cartTotal)
-// }
-// const finalTotal = calcFinalPrice()
-// console.log(finalTotal)
+const calcFinalPrice = (cartTotal, couponValue, tax) =>{
+    const totalTax = cartTotal * tax;
+    cartTotal += totalTax;
+    cartTotal -= couponValue;
+    return cartTotal
+
+};
+const cartTotal1 = calcFinalPrice(100, 4, 0.07)
+console.log("$", cartTotal1)
 
 //////////////////PROBLEM 3////////////////////
 /*  
@@ -93,14 +90,13 @@ console.log('$', totalSum)
 
 /*
     TEXT ANSWER HERE
-For this customer I am making an object list of items this business will need.
-1. We will need to make a list of items using the object arrayment.
-2. We will list customers name, address, phone number, credit card info
-3. We will create a nested object for card information
-4. number, expiration, cvsCode and cardType
-5. console.log() the variable to get customers full info.
-I choose this path for the basic information and made the list of steps how to 
-make a basic data structure for each customer. 
+Why I choose the following names for this object
+1. customer name is a string since its just letters.
+2. address is a string since its a mixed of letters and numbers
+3. phoneNumber is a string since it has special charactors and numbers
+4. credit card info. number, expirationMonth, 
+expirationYear and csvCode are numbers since there are no letters or special charactors
+5. cardType is a sring since it contains letters.
 
 */
 
@@ -111,16 +107,17 @@ make a basic data structure for each customer.
 
 //CODE HERE
 
-const bensPizzaria = {
+const customerHistory = {
     customerName: "Wonda Spagetti",
     address: "1066 Happyville Lane, Roy, UT 84067",
-    phoneNumber: ("801-726-9201"),
+    phoneNumber: "801-726-9201",
     creditCardInfo: {
-        number: "2829 2837 9192 8383",
-        expiration: "10/25",
-        cvsCode: "123",
+        number: 4829283791928383,
+        expirationMonth: 10,
+        expirationYear: 25,
+        csvCode: 123,
         cardType: "Visa"
     }
 
 }
-console.log(bensPizzaria)
+console.log(customerHistory)

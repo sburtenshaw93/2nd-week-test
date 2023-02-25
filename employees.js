@@ -97,20 +97,19 @@ console.log(empTwo)
 
 //CODE HERE
 class Manager extends Employee {
-    constructor(name, shifts, employees){
-        super(name, shifts) 
-            this.employees = employees
-        }
-        getEmployees() {
-            this.name = name
-            this.shifts = shifts
-        }
-        addEmployee() {
-            this.emp = 
-            console.log(`New employee ${name}`)
-        }
+    constructor(name, shifts, employees) {
+        super(name, shifts)
+        this.employees = employees;
     }
 
+    getEmployees() {
+        return this.employees;
+    }
+
+    addEmployee(newEmployee) {
+        this.employees.push(newEmployee);
+    }
+}
 
 
 /*
@@ -126,8 +125,8 @@ class Manager extends Employee {
 
 //CODE HERE
 
-const manager1 = new Manager ("Coach", "8:45 am - 5:00 pm Monday - Friday", "Jessica Day, Nick Miller")
-const manager2 = new Manager ("Winston Schmidt", "5:00 pm - 12:00 am Monday, Wednesday, Friday", "Winston Bisop, Cece Parekh")
+const manager1 = new Manager ("Coach", "8:45 am - 5:00 pm Monday - Friday", ["Jessica Day" , "Nick Miller"])
+const manager2 = new Manager ("Winston Schmidt", "5:00 pm - 12:00 am Monday, Wednesday, Friday", ["Winston Bisop" , "Cece Parekh"])
 console.log(manager1)
 console.log(manager2)
 /*
@@ -144,7 +143,7 @@ console.log(manager2)
 */
 
 //CODE HERE 
-const addEmployee = manager1.employees = {employees: "Ally"}
+manager1.addEmployee("Aly Nelson")
 /*
 Call the `getEmployees` method on the
 `manager` object again to confirm 
@@ -152,4 +151,5 @@ that an employee was added.
 */
 
 //CODE HERE
-console.log(addEmployee)
+const manager1Employees = manager1.getEmployees();
+console.log(manager1Employees)
